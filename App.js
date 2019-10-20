@@ -4,26 +4,26 @@ import { Feather } from '@expo/vector-icons';
 import { createAppContainer, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import MovieListScreen from './app/screens/MovieListScreen.js';
+import DiningLocation from './app/screens/DiningLocation.js';
 import ConfigurationScreen from './app/screens/ConfigurationScreen.js';
 import MovieDetailsScreen from './app/screens/MovieDetailsScreen.js';
 import SearchScreen from './app/screens/SearchScreen.js';
 import SearchResultsScreen from './app/screens/SearchResultsScreen.js';
 import WebViewScreen from './app/screens/WebViewScreen.js';
-import GenreScreen from './app/screens/GenreScreen.js';
+import Business from './app/screens/Business.js';
 
 
-const MovieTabTitle = 'Home';
+const MovieTabTitle = 'Dining Locations';
 const SearchTabTitle = 'Search';
-const GenreTabTitle = 'Genres';
 const ConfigTabTitle = 'More';
 const WebTabTitle = 'Trailer';
+const BusinessTitle = 'Busyness right now';
 
 
 const HomeTab = createStackNavigator(
   {
     MovieList: {
-      screen : MovieListScreen,
+      screen : DiningLocation,
       navigationOptions : {
         title : MovieTabTitle,
         headerTintColor : '#273c75',
@@ -43,6 +43,16 @@ const HomeTab = createStackNavigator(
         }
       }
     },
+    BusinessView: {
+    	screen: Business,
+    	navigationOptions: {
+    		title: BusinessTitle,
+    		headerTintColor: '#273c75',
+        headerStyle : {
+          backgroundColor : '#ffffff'
+        }
+      }
+  },
     WebView: {
       screen : WebViewScreen,
       navigationOptions : {
@@ -63,7 +73,7 @@ const HomeTab = createStackNavigator(
   
 HomeTab.navigationOptions = {
     tabBarIcon : ({tintColor}) => (
-    <Feather name = "film" size = {20} color = {tintColor} /> 
+    <Feather name = "target" size = {20} color = {tintColor} /> 
     )
   };
 
@@ -121,68 +131,12 @@ const SearchTab = createStackNavigator(
 
   SearchTab.navigationOptions = {
     tabBarIcon: ({tintColor}) => {
-       return <Feather name = "search" size = {20} color = {tintColor} />
+       return <Feather name = "map" size = {20} color = {tintColor} />
       },
     showIcon: true  
   };
 
-  const GenreTab = createStackNavigator(
-  {
-    GenresScreen: {
-      screen: GenreScreen,
-      navigationOptions: {
-        title: GenreTabTitle,
-        headerTintColor: '#273c75',
-        headerStyle: {
-          backgroundColor: '#ffffff'
-        }
-      }
-    },
-    SearchResults: {
-      screen: SearchResultsScreen,
-      navigationOptions: {
-        title: 'Search Results',
-        headerTintColor: '#ffffff',
-        headerStyle: {
-          backgroundColor: '#273c75'
-        }
-      }
-    },
-    MovieDetails: {
-      screen : MovieDetailsScreen,
-      navigationOptions : {
-        title : SearchTabTitle,
-        headerTintColor : '#273c75',
-        headerStyle : {
-          backgroundColor : '#ffffff'
-        }
-      }
-    },
-    WebView: {
-      screen : WebViewScreen,
-      navigationOptions : {
-        title : WebTabTitle,
-        headerTintColor : '#273c75',
-        headerStyle : {
-          backgroundColor : '#ffffff'
-        }
-      }
-    }
-  },
-  {
-    initialRouteName: 'GenresScreen'
-  }
-
-);
-
-
-  GenreTab.navigationOptions = {
-    tabBarIcon: ({tintColor}) => (
-      <Feather name = "menu" size = {20} color = {tintColor} />
-    )
-
-  };
-
+  
 
 
   const ConfigTab = createStackNavigator(
@@ -245,13 +199,6 @@ const MainNavigator =
               tabBarVisible: MovieListTabBarVisible(navigation)
             })
           },
-          Genre: {
-            screen: GenreTab,
-            navigationOptions: ({ navigation }) => ({
-              title: GenreTabTitle,
-              tabBarVisible: MovieListTabBarVisible(navigation)
-            })
-          },
           Config: {
             screen: ConfigurationTab,
             navigationOptions: {
@@ -291,12 +238,6 @@ const MainNavigator =
               title: SearchTabTitle,
               tabBarVisible: MovieListTabBarVisible(navigation)
             })
-          },
-          Genre: {
-            screen: GenreTab,
-            navigationOptions: {
-              title: GenreTabTitle
-            }
           },
           Config: {
             screen: ConfigTab,

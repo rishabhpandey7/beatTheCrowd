@@ -25,49 +25,32 @@ export default class FilterModal extends Component<{}> {
     return (
       <Modal isVisible={isVisible} actionOpenClose={actionFilter} style={style}>
         <View style={styles.containerModal}>
-          <Text style={styles.modalTitle}>Filter</Text>
+          <Text style={styles.modalTitle}>Our Prediction</Text>
           <ScrollView>
             <View style={styles.containerScroll}>
               <View style={styles.containerSection}>
                 <Text style={styles.optionSectionTitle} numberOfLines={2}>
-                  Release Date
+                  Estimated Time of Arrival
                 </Text>
                 <View style={styles.containerRow}>
                   <Text style={styles.optionTitle} numberOfLines={2}>
-                    Newest
+                    Time
                   </Text>
-                  <Switch
-                    value={filter === 'release_date.desc'}
-                    onValueChange={() =>
-                      this.changeValues('release_date.desc', 'Releases')
-                    }
-                  />
+                  {this.props.Time}
                 </View>
-                <View style={styles.containerRow}>
-                  <Text style={styles.optionTitle} numberOfLines={2}>
-                    Oldest
-                  </Text>
-                  <Switch
-                    value={filter === 'release_date.asc'}
-                    onValueChange={() =>
-                      this.changeValues('release_date.asc', 'Old')
-                    }
-                  />
-                </View>
+                
               </View>
               <View style={styles.containerSection}>
                 <Text style={styles.optionSectionTitle} numberOfLines={2}>
-                  Popularity
+                  Busyness
                 </Text>
                 <View style={styles.containerRow}>
                   <Text style={styles.optionTitle} numberOfLines={2}>
-                    Most popular
+                    Rating
                   </Text>
-                  <Switch
-                    value={filter === 'popularity.desc'}
-                    onValueChange={() =>
-                      this.changeValues('popularity.desc', 'Most popular')
-                    }
+                  <Text style={styles.optionTitle} numberOfLines={2}>
+                    R
+                  </Text>
                   />
                 </View>
                 <View style={styles.containerRow}>
