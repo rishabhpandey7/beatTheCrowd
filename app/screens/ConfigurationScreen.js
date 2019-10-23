@@ -15,8 +15,8 @@ export default class ConfigurationScreen extends React.Component{
 
 actionShare = () => {
 	Share({
-		message: 'Learn more about your favourite movies and discover new movies!',
-		dialogTitle: 'Learn more about your favourite movies and discover new movies!',
+		message: 'Check if your favourite dining hall is busy!',
+		dialogTitle: 'Check if its busy right now or in the near future!',
 	});
 };
 

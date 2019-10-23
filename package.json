@@ -11,6 +11,7 @@
     "expo": "^35.0.0",
     "google-distance-matrix": "^1.1.1",
     "haversine": "^1.1.1",
+    "install": "^0.13.0",
     "popup-ui": "^1.0.5",
     "react": "16.8.3",
     "react-dom": "16.8.3",

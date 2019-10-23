@@ -14,7 +14,7 @@ import Business from './app/screens/Business.js';
 
 
 const MovieTabTitle = 'Dining Locations';
-const SearchTabTitle = 'Search';
+const SearchTabTitle = 'Prediction at ETA';
 const ConfigTabTitle = 'More';
 const WebTabTitle = 'Trailer';
 const BusinessTitle = 'Busyness right now';
